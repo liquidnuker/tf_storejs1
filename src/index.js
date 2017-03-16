@@ -10,21 +10,25 @@ const customStorage = {
   },
 
   showAll: function (key, value) {
-    store.each(function(key, value) {
+    return store.each(function(key, value) {
       console.log(key, '==', value);
     });
   },
 
   remove: function (key) {
-    store.remove(key);
+    return store.remove(key);
   },
 
   clearAll: function () {
-    store.clearAll();
+    return store.clearAll();
   }
 };
 
 customStorage.set("user1", {name: "markus"});
+// console.dir(customStorage.get("user1"));
+
+// customStorage.remove("user1");
+// customStorage.clearAll();
 console.dir(customStorage.get("user1"));
 
-document.body.innerHTML = customStorage.get("user1");
+
