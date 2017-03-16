@@ -78,6 +78,10 @@ store.set('user1', { name: 'Marcus' });
 // get
 console.log(store.get('user1'));
 
+// remove 
+store.remove("user1");
+console.log(store.get("user1"));
+
 /***/ }),
 /* 1 */
 /***/ (function(module, exports, __webpack_require__) {
