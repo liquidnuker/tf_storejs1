@@ -68,40 +68,31 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-var store = __webpack_require__(1);
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__js_customStorage_js__ = __webpack_require__(3);
 
-var customStorage = {
-  get: function get(key) {
-    return store.get(key);
-  },
 
-  set: function set(key, value) {
-    return store.set(key, { name: value });
-  },
+// customStorage.set("user1", "markus");
+__WEBPACK_IMPORTED_MODULE_0__js_customStorage_js__["a" /* customStorage */].set("user2", {
+  name: "markus2",
+  photo: "photo002.jpg"
+});
 
-  showAll: function showAll(key, value) {
-    return store.each(function (key, value) {
-      console.log(key, '==', value);
-    });
-  },
+// console.log(customStorage.get("user2").photo === "photo002.jpg");
+// console.log(customStorage.get("user2"));
+// console.dir(customStorage.get("user2"));
 
-  remove: function remove(key) {
-    return store.remove(key);
-  },
-
-  clearAll: function clearAll() {
-    return store.clearAll();
-  }
-};
-
-customStorage.set("user1", { name: "markus" });
-// console.dir(customStorage.get("user1"));
+__WEBPACK_IMPORTED_MODULE_0__js_customStorage_js__["a" /* customStorage */].showAll();
 
 // customStorage.remove("user1");
 // customStorage.clearAll();
-console.dir(customStorage.get("user1"));
+// console.dir(customStorage.get("user1"));
+
+document.body.innerHTML = JSON.stringify(__WEBPACK_IMPORTED_MODULE_0__js_customStorage_js__["a" /* customStorage */].get("user2"));
+// document.body.innerHTML = customStorage.showAll());
 
 /***/ }),
 /* 1 */
@@ -650,6 +641,40 @@ try {
 // easier to handle this case. if(!global) { ...}
 
 module.exports = g;
+
+
+/***/ }),
+/* 3 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return customStorage; });
+var store = __webpack_require__(1);
+
+var customStorage = {
+  get: function get(key) {
+    return store.get(key);
+  },
+
+  set: function set(key, value) {
+    return store.set(key, value);
+  },
+
+  showAll: function showAll() {
+    store.each(function (key, value) {
+      console.log(key, '==', value);
+    });
+  },
+
+  remove: function remove(key) {
+    return store.remove(key);
+  },
+
+  clearAll: function clearAll() {
+    return store.clearAll();
+  }
+};
+
 
 
 /***/ })

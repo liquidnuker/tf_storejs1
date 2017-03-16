@@ -1,34 +1,20 @@
-const store = require("./js/vendor/store.everything.min.js");
+import {customStorage} from "./js/customStorage.js";
 
-const customStorage = {
-  get: function (key) {
-    return store.get(key);
-  },
+// customStorage.set("user1", "markus");
+customStorage.set("user2", {
+  name: "markus2",
+  photo: "photo002.jpg"
+});
 
-  set: function (key, value) {
-    return store.set(key, { name: value });
-  },
+// console.log(customStorage.get("user2").photo === "photo002.jpg");
+// console.log(customStorage.get("user2"));
+// console.dir(customStorage.get("user2"));
 
-  showAll: function (key, value) {
-    return store.each(function(key, value) {
-      console.log(key, '==', value);
-    });
-  },
-
-  remove: function (key) {
-    return store.remove(key);
-  },
-
-  clearAll: function () {
-    return store.clearAll();
-  }
-};
-
-customStorage.set("user1", {name: "markus"});
-// console.dir(customStorage.get("user1"));
+customStorage.showAll();
 
 // customStorage.remove("user1");
 // customStorage.clearAll();
-console.dir(customStorage.get("user1"));
+// console.dir(customStorage.get("user1"));
 
-
+document.body.innerHTML = JSON.stringify(customStorage.get("user2"));
+// document.body.innerHTML = customStorage.showAll());
